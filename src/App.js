@@ -7,7 +7,7 @@ function App() {
   let num = Math.max()
   return (
     <div className="container">
-      <Header/>
+      <Header />
       <img src={logo} className="App-logo" alt="logo" />
       <div style={{ color: "goldenrod", }}>{str}</div>
       <div style={{ color: "goldenrod", }}>{num}</div>
