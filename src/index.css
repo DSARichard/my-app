@@ -25,7 +25,7 @@ body {
 }
 .btn {
   display: inline-block;
-  background: #000000;
+  background-color: #000000;
   color: #FFFFFF;
   font-size: 15px;
   font-family: inherit;

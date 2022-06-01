@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
 import logo from '../logo.svg';
+import Button from './Button'
 
 const Header = ({ title }) => {
   return (
-    <header>
-      <img src={logo} className="App-logo" alt="logo" />
+    <header className="header">
       <h1>{title}</h1>
+      <img src={logo} className="App-logo" alt="logo" />
+      <Button />
     </header>
   );
 };
