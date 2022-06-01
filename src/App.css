@@ -2,13 +2,13 @@
   text-align: center;
 }
 .App-logo {
-  height: 16vmin;
+  height: 12vmin;
   pointer-events: none;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation-name: App-logo-spin;
-    animation-duration: 8s;
+    animation-duration: 6s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
   }
