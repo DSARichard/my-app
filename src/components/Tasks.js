@@ -1,18 +1,19 @@
 import PropTypes from 'prop-types';
+import Task from './Task'
 
 const Tasks = ({ tasks }) => {
   return (
-    <span>
+    <div>
       {tasks.map(
         (task) => (
-          <span key={task.id}>{task.text}</span>
+          <Task task={task} key={task.id} />
         )
       )}
-    </span>
+    </div>
   );
 };
 Tasks.propTypes = {
-  tasks: PropTypes.object,
+  tasks: PropTypes.array,
 };
 
 export default Tasks;

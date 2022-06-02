@@ -25,8 +25,8 @@ body {
 }
 .btn {
   display: inline-block;
-  background-color: #000000;
   color: #FFFFFF;
+  background-color: #000000;
   font-size: 15px;
   font-family: inherit;
   text-decoration: none;
@@ -50,12 +50,12 @@ body {
   background: #F4F4F4;
   margin: 5px;
   padding: 10px 20px;
-  cursor: pointer;
+  cursor: text;
 }
 .task.reminder {
   border-left: 5px solid #008F00;
 }
-.task h3 {
+.task :is(h1, h2, h3, h4, h5, h6) {
   display: flex;
   align-items: center;
   justify-content: space-between;
