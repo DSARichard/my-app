@@ -33,7 +33,7 @@ body {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  margin: 5px;
+  margin: 10px;
   cursor: pointer;
 }
 .btn:focus {
@@ -49,6 +49,7 @@ body {
 .task {
   background: #F4F4F4;
   margin: 5px;
+  border-radius: 3px;
   padding: 10px 20px;
   cursor: text;
 }
