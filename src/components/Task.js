@@ -9,10 +9,10 @@ const Task = ({ task, onDelete, onToggle }) => {
   const time = task.time;
   return (
     <div onDoubleClick={() => onToggle(task.id)} className={`task ${task.reminder ? "reminder" : ""}`}>
-      <h3>
+      <h2>
         {task.text}
         <FaTimes style={{ color: "#D83B01", cursor: "pointer", }} onClick={() => onDelete(task.id)} />
-      </h3>
+      </h2>
       {zfill(time.month + 1, 2)}/{zfill(time.day + 1, 2)}/{time.year + 2000}&nbsp;
       {zfill(time.hour%12 === 0 ? 12 : time.hour%12, 2)}:{zfill(time.minute, 2)}:{zfill(time.second, 2)}&nbsp;
       {time.hour < 12 ? "AM" : "PM"}

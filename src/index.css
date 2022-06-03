@@ -64,8 +64,12 @@ body {
 }
 .task :is(h1, h2, h3, h4, h5, h6) {
   display: flex;
+  font-weight: 600;
   align-items: center;
   justify-content: space-between;
+}
+.task.reminder :is(h1, h2, h3, h4, h5, h6) {
+  font-weight: 750;
 }
 .add-form {
   margin-bottom: 40px;
