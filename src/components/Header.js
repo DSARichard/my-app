@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import logo from '../logo.svg';
-import Button from './Button'
+import Button from './Button';
 
 const Header = ({ title }) => {
   const onClick = () => {
@@ -11,7 +11,7 @@ const Header = ({ title }) => {
     <header className="header">
       <h1>{title}</h1>
       <img src={logo} className="App-logo" alt="logo" />
-      <Button text="Add Task" onClick={onClick} />
+      <Button color="#355E3B" text="Add Task" onClick={onClick} />
     </header>
   );
 };
