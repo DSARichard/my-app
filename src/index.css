@@ -1,7 +1,7 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: padding-box;
+  box-sizing: border-box;
 }
 html {
   background-color: #1C2333;
@@ -12,9 +12,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .container {
-  background-color: white;
-  max-width: 500px;
-  min-height: 500px;
+  background-color: #FFFFFF;
+  max-width: 600px;
+  min-height: 600px;
   padding: 30px;
   border: 16px solid #2B3245;
   border-radius: 5px;
@@ -48,19 +48,22 @@ body {
 }
 .btn-block {
   display: block;
-  width: 100%;
+}
+.btn-block.form {
+  width: calc(100% - 20px);
 }
 .task {
   background-color: #BFDDF5;
   margin: 5px;
-  border-left: 8px solid #0078D7;
+  border-left: 6px solid #0078D7;
   border-radius: 5px;
   padding: 10px 20px;
   cursor: text;
 }
 .task.reminder {
   background-color: #BFF5DD;
-  border-left-color: #00D778;
+  padding-left: 18px;
+  border-left: 8px solid #00D778;
 }
 .task :is(h1, h2, h3, h4, h5, h6) {
   display: flex;
@@ -69,34 +72,39 @@ body {
   justify-content: space-between;
 }
 .task.reminder :is(h1, h2, h3, h4, h5, h6) {
-  font-weight: 750;
+  font-weight: 700;
+}
+.task.none {
+  color: #E8F9FC;
+  background-color: #9DA2A6;
+  border: none;
 }
 .add-form {
   margin-bottom: 40px;
 }
 .form-control {
-  margin: 20px 0;
+  margin: 20px 0px;
 }
 .form-control label {
   display: block;
 }
 .form-control input {
-  width: 100%;
+  font-size: 14px;
+  width: calc(100% - 10px);
   height: 40px;
+  padding: 5px 10px;
   margin: 5px;
-  padding: 3px 7px;
-  font-size: 17px;
 }
 .form-control-check {
   display: flex;
-  align-items: center;
+  align-items: left;
   justify-content: space-between;
 }
 .form-control-check label {
-  flex: 1;
+  flex: 20;
 }
 .form-control-check input {
-  flex: 2;
+  flex: 1;
   height: 20px;
 }
 footer {
