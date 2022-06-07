@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import Header from './components/Header';
 import Tasks from './components/Tasks';
-import AddTask from './components/AddTask'
+import AddTask from './components/AddTask';
 
 function App() {
   const [tasks, setTasks] = useState([
