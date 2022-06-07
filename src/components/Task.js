@@ -4,6 +4,10 @@ import { FaTimes } from 'react-icons/fa';
 function zfill(val, zeros) {
   return ("0".repeat(zeros - 1) + val).slice(-zeros);
 }
+zfill.propTypes = {
+  val: PropTypes.number,
+  zeros: PropTypes.number,
+};
 
 const Task = ({ task, onDelete, onToggle }) => {
   const time = task.time;

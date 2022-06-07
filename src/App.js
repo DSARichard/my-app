@@ -1,14 +1,16 @@
 import './App.css';
+import { useState } from 'react';
+import PropTypes from 'prop-types';
+
 import Header from './components/Header';
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask'
-import { useState } from 'react';
 
 function App() {
   const [tasks, setTasks] = useState([
     {
       id: 0,
-      text: "Stuff",
+      text: "My Task",
       time: {
         year: 0,
         month: 0,
@@ -32,18 +34,40 @@ function App() {
     hour = Number(date.substr(8, 2)), minute = Number(date.substr(10, 2)), second = Number(date.substr(12, 2));
   console.log(year, month, day, hour, minute, second);
   
+  const addTask = (task) => {
+    const ids = tasks.map((task) => (task.id));
+    const newId = (tasks.length > 0) ? Math.max(...ids) + 1 : 0;
+    console.log(newId);
+    console.log(task);
+  };
+  addTask.propTypes = {
+    task: PropTypes.object,
+  };
+  
   const deleteTask = (id) => {
-    setTasks(tasks.filter((task) => (task.id !== id)));
+    const ids = tasks.map((task) => (task.id));
+    const maxId = Math.max(...ids);
+    const maxIdTask = tasks[ids.indexOf(maxId)];
+    setTasks([
+      ...tasks.filter((task) => (task.id !== id && task.id !== maxId)),
+      (id !== maxId) ? { ...maxIdTask, id: id } : undefined
+    ].filter((task) => (task !== undefined)));
+  };
+  deleteTask.propTypes = {
+    id: PropTypes.number,
   };
   
   const toggleReminder = (id) => {
-    setTasks(tasks.map((task) => (task.id === id ? {...task, reminder: !task.reminder } : task)));
+    setTasks(tasks.map((task) => (task.id === id ? { ...task, reminder: !task.reminder } : task)));
+  };
+  toggleReminder.propTypes = {
+    id: PropTypes.number,
   };
   
   return (
     <div className="container">
       <Header />
-      <AddTask />
+      <AddTask onAdd={addTask} />
       {
         tasks.length > 0
         ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
