@@ -1,21 +1,42 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
+function getDate() {
+  let dateNow = new Date().toLocaleString(undefined, {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit", hour12: false,
+    minute: "2-digit",
+    second: "2-digit",
+  }).replaceAll(" ", "").replaceAll(",", "").replaceAll("/", "").replaceAll(":", "");
+  dateNow = [[4, 4], [0, 2], [2, 2], [8, 2], [10, 2], [12, 2]].map((x) => Number(dateNow.substr(...x)));
+  return dateNow;
+}
+
 const AddTask = ({ onAdd }) => {
-  const [text, setText] = useState("");
-  const [date, setDate] = useState("");
-  const [reminder, setReminder] = useState(false);
+  let [year, month, day, hour, minute, second] = getDate();
+  console.log(year, month, day, hour, minute, second);
+  
+  const defaults = {
+    text: "",
+    date: "lol",
+    reminder: false,
+  }
+  const [text, setText] = useState(defaults.text);
+  const [date, setDate] = useState(defaults.date);
+  const [reminder, setReminder] = useState(defaults.reminder);
   
   const onSubmit = (e) => {
     e.preventDefault();
     if(!text) {
-      alert("lol");
+      alert("oof");
       return;
     }
     onAdd({ text, date, reminder });
-    setText("");
-    setDate("");
-    setReminder(false);
+    setText(defaults.text);
+    setDate(defaults.date);
+    setReminder(defaults.reminder);
   };
   onSubmit.propTypes = {
     e: PropTypes.object,
@@ -30,13 +51,55 @@ const AddTask = ({ onAdd }) => {
           value={text} onChange={(e) => setText(e.target.value)}
         />
       </div>
+      
       <div className="form-control">
         <label>Date and Time</label>
-        <input
-          type="text" placeholder="Add Date and Time"
-          value={date} onChange={(e) => setDate(e.target.value)}
-        />
+        <div className="form-control sel">
+          <div>
+            Year:&nbsp;&nbsp;
+            <select value={date} onChange={(e) => setDate(e.target.value)}>
+              <option value="yeet">yeet</option>
+              <option value="lol">lol</option>
+            </select>
+          </div>
+          <div>
+            Month:&nbsp;&nbsp;
+            <select value={date} onChange={(e) => setDate(e.target.value)}>
+              <option value="yeet">yeet</option>
+              <option value="lol">lol</option>
+            </select>
+          </div>
+          <div>
+            Day:&nbsp;&nbsp;
+            <select value={date} onChange={(e) => setDate(e.target.value)}>
+              <option value="yeet">yeet</option>
+              <option value="lol">lol</option>
+            </select>
+          </div>
+          <div>
+            Hour:&nbsp;&nbsp;
+            <select value={date} onChange={(e) => setDate(e.target.value)}>
+              <option value="yeet">yeet</option>
+              <option value="lol">lol</option>
+            </select>
+          </div>
+          <div>
+            Minute:&nbsp;&nbsp;
+            <select value={date} onChange={(e) => setDate(e.target.value)}>
+              <option value="yeet">yeet</option>
+              <option value="lol">lol</option>
+            </select>
+          </div>
+          <div>
+            Second:&nbsp;&nbsp;
+            <select value={date} onChange={(e) => setDate(e.target.value)}>
+              <option value="yeet">yeet</option>
+              <option value="lol">lol</option>
+            </select>
+          </div>
+        </div>
       </div>
+      
       <div className="form-control form-control-check">
         <label>Set Reminder</label>
         <input
