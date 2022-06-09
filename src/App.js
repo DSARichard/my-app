@@ -39,8 +39,8 @@ function App() {
     const maxIdTask = tasks[ids.indexOf(maxId)];
     setTasks([
       ...tasks.filter((task) => (task.id !== id && task.id !== maxId)),
-      (id !== maxId) ? { ...maxIdTask, id: id } : undefined
-    ].filter((task) => (task !== undefined)));
+      ...[(id !== maxId) ? { ...maxIdTask, id: id } : undefined].filter((task) => (task !== undefined))
+    ]);
   };
   deleteTask.propTypes = {
     id: PropTypes.number,
